@@ -17,36 +17,38 @@ function getComputerChoice() {
 
 function play() {
     computerSelection = getComputerChoice();
-    victory.textContent = '';
-    defeat.textContent = '';
+    current.textContent = '';
     if (playerSelection === computerSelection){
-        console.log(`It's a tie`);
+        current.textContent = `It's a tie`;
+        results.appendChild(current);
     }else if (playerSelection === 'rock'){
         if(computerSelection === 'paper'){
-            console.log(`Computer win ${computerSelection} beats ${playerSelection}`);
-            defeat.textContent = `Computer win ${computerSelection} beats ${playerSelection}`;
-            div.appendChild(defeat);
+            current.textContent = `Computer win ${computerSelection} beats ${playerSelection}`;
+            results.appendChild(current);
             computerScore++;
         }else{
-            console.log(`You win ${playerSelection} beats ${computerSelection}`);
-            victory.textContent = `You win ${playerSelection} beats ${computerSelection}`;
-            div.appendChild(victory);
+            current.textContent = `You win ${playerSelection} beats ${computerSelection}`;
+            results.appendChild(current);
             playerScore++;
         }
     }else if (playerSelection === 'paper'){
         if(computerSelection === 'scissors'){
-            console.log(`Computer win ${computerSelection} beats ${playerSelection}`);
+            current.textContent = `Computer win ${computerSelection} beats ${playerSelection}`;
+            results.appendChild(current);
             computerScore++;
         }else{
-            console.log(`You win ${playerSelection} beats ${computerSelection}`);
+            current.textContent = `You win ${playerSelection} beats ${computerSelection}`;
+            results.appendChild(current);
             playerScore++;
         }
     }else if (playerSelection === 'scissors'){
         if(computerSelection === 'rock'){
-            console.log(`Computer win ${computerSelection} beats ${playerSelection}`);
+            current.textContent = `Computer win ${computerSelection} beats ${playerSelection}`;
+            results.appendChild(current);
             computerScore++;
         }else{
-            console.log(`You win ${playerSelection} beats ${computerSelection}`);
+            current.textContent = `You win ${playerSelection} beats ${computerSelection}`;
+            results.appendChild(current);
             playerScore++;
         }
     }
@@ -75,8 +77,8 @@ const div = document.createElement('div');
 const rock = document.createElement('button');
 const scissors = document.createElement('button');
 const paper = document.createElement('button');
-const victory = document.createElement('span');
-const defeat = document.createElement('span')
+const results = document.createElement('div')
+const current = document.createElement('span');
 
 
 rock.textContent = 'rock';
@@ -85,12 +87,16 @@ scissors.textContent = 'scissors';
 rock.classList.add('buttons');
 paper.classList.add('buttons');
 scissors.classList.add('buttons');
+current.classList.add('current');
+div.classList.add('container');
+results.classList.add('container');
 
 
 div.appendChild(rock);
 div.appendChild(paper);
 div.appendChild(scissors);
 document.body.appendChild(div);
+document.body.appendChild(results);
 
 function buttonClicked(e){
     playerSelection = e.target.textContent;
