@@ -19,39 +19,33 @@ function play() {
     computerSelection = getComputerChoice();
     current.textContent = '';
     if (playerSelection === computerSelection){
-        current.textContent = `It's a tie`;
-        results.appendChild(current);
+        current.textContent = `It's a tie`;        
     }else if (playerSelection === 'rock'){
         if(computerSelection === 'paper'){
-            current.textContent = `Computer win ${computerSelection} beats ${playerSelection}`;
-            results.appendChild(current);
+            current.textContent = `Computer win ${computerSelection} beats ${playerSelection}`;            
             computerScore++;
         }else{
-            current.textContent = `You win ${playerSelection} beats ${computerSelection}`;
-            results.appendChild(current);
+            current.textContent = `You win ${playerSelection} beats ${computerSelection}`;           
             playerScore++;
         }
     }else if (playerSelection === 'paper'){
         if(computerSelection === 'scissors'){
-            current.textContent = `Computer win ${computerSelection} beats ${playerSelection}`;
-            results.appendChild(current);
+            current.textContent = `Computer win ${computerSelection} beats ${playerSelection}`;            
             computerScore++;
         }else{
-            current.textContent = `You win ${playerSelection} beats ${computerSelection}`;
-            results.appendChild(current);
+            current.textContent = `You win ${playerSelection} beats ${computerSelection}`;           
             playerScore++;
         }
     }else if (playerSelection === 'scissors'){
         if(computerSelection === 'rock'){
-            current.textContent = `Computer win ${computerSelection} beats ${playerSelection}`;
-            results.appendChild(current);
+            current.textContent = `Computer win ${computerSelection} beats ${playerSelection}`;            
             computerScore++;
         }else{
-            current.textContent = `You win ${playerSelection} beats ${computerSelection}`;
-            results.appendChild(current);
+            current.textContent = `You win ${playerSelection} beats ${computerSelection}`;            
             playerScore++;
         }
     }
+    results.appendChild(current);
     playerCurrentScore.textContent = `Your score is: ${playerScore}`
     computerCurrentScore.textContent = `The computer score is: ${computerScore}`;
 
@@ -85,8 +79,10 @@ const div = document.createElement('div');
 const rock = document.createElement('button');
 const scissors = document.createElement('button');
 const paper = document.createElement('button');
+
 const results = document.createElement('div')
 const current = document.createElement('span');
+
 const score = document.createElement('div');
 const computerCurrentScore = document.createElement('span');
 const playerCurrentScore = document.createElement('span');
@@ -99,10 +95,12 @@ scissors.textContent = 'scissors';
 rock.classList.add('buttons');
 paper.classList.add('buttons');
 scissors.classList.add('buttons');
+
 current.classList.add('current');
 div.classList.add('container');
 results.classList.add('container');
 score.classList.add('container')
+
 playerCurrentScore.textContent = `Your score is: 0`
 computerCurrentScore.textContent = `The computer score is: 0`
 winner.textContent = `The winner is: `
@@ -110,9 +108,11 @@ winner.textContent = `The winner is: `
 score.appendChild(playerCurrentScore);
 score.appendChild(computerCurrentScore);
 score.appendChild(winner);
+
 div.appendChild(rock);
 div.appendChild(paper);
 div.appendChild(scissors);
+
 document.body.appendChild(div);
 document.body.appendChild(results);
 document.body.appendChild(score);
@@ -122,8 +122,8 @@ function buttonClicked(e){
     playerSelection = e.target.textContent;
 }
 
-
 let buttons = document.querySelectorAll('.buttons');
+
 buttons.forEach((button) => {
     button.addEventListener('click', buttonClicked)
 });
