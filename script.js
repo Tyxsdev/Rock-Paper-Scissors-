@@ -52,6 +52,14 @@ function play() {
             playerScore++;
         }
     }
+    playerCurrentScore.textContent = `Your score is: ${playerScore}`
+    computerCurrentScore.textContent = `The computer score is: ${computerScore}`;
+
+    if (playerScore === 5 && computerScore <= 5){
+        winner.textContent = `The winner is: You`;
+    } else if (computerScore === 5 && playerScore <= 5){
+        winner.textContent = `The winner is: The Computer`;
+    }
 }
 
 /* function game() {
@@ -79,6 +87,10 @@ const scissors = document.createElement('button');
 const paper = document.createElement('button');
 const results = document.createElement('div')
 const current = document.createElement('span');
+const score = document.createElement('div');
+const computerCurrentScore = document.createElement('span');
+const playerCurrentScore = document.createElement('span');
+const winner = document.createElement('p');
 
 
 rock.textContent = 'rock';
@@ -90,13 +102,21 @@ scissors.classList.add('buttons');
 current.classList.add('current');
 div.classList.add('container');
 results.classList.add('container');
+score.classList.add('container')
+playerCurrentScore.textContent = `Your score is: 0`
+computerCurrentScore.textContent = `The computer score is: 0`
+winner.textContent = `The winner is: `
 
-
+score.appendChild(playerCurrentScore);
+score.appendChild(computerCurrentScore);
+score.appendChild(winner);
 div.appendChild(rock);
 div.appendChild(paper);
 div.appendChild(scissors);
 document.body.appendChild(div);
 document.body.appendChild(results);
+document.body.appendChild(score);
+
 
 function buttonClicked(e){
     playerSelection = e.target.textContent;
